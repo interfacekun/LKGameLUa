@@ -15,3 +15,12 @@ function charToNumber()
 		print(n*2)
 	end
 end
+
+function testLocal()
+	a = 10;
+	if a==10 then
+		print("globle",a)
+		local a=1
+		print("local",a)
+	end
+end
