@@ -15,7 +15,16 @@
 			"file": "sublime.lua",
 			"settings":
 			{
-				"buffer_size": 158,
+				"buffer_size": 195,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "JavaEE.jsp",
+			"settings":
+			{
+				"buffer_size": 722,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -115,15 +124,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 158,
+						"buffer_size": 195,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								158,
-								158
+								133,
+								133
 							]
 						],
 						"settings":
@@ -135,6 +144,34 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "JavaEE.jsp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 722,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								374,
+								374
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java Server Pages (JSP).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 286.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
