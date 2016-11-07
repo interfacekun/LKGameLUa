@@ -1,3 +1,5 @@
+#!/usr/bin/env lua 
+
 -- print("Hello world")
 -- a={"a","b","c","d"}
 -- for i=1,4 do
@@ -85,4 +87,104 @@
 -- print(package.path)
 -- a={"1","2","3"}
 -- print(a)
+
+-- coroutine_test.lua 文件
+co = coroutine.create(
+    function(i)
+        print(i);
+    end
+)
+ 
+coroutine.resume(co, 1)   -- 1
+print(coroutine.status(co))  -- dead
+ 
+print("----------")
+ 
+co = coroutine.wrap(
+    function(i)
+        print(i);
+    end
+)
+ 
+co(1)
+ 
+print("----------")
+ 
+co2 = coroutine.create(
+    function()
+        for i=1,10 do
+            print(i)
+            if i == 3 then
+                print(coroutine.status(co2))  --running
+                print(coroutine.running()) --thread:XXXXXX
+            end
+            coroutine.yield()
+        end
+    end
+)
+ 
+coroutine.resume(co2) --1
+coroutine.resume(co2) --2
+coroutine.resume(co2) --3
+ 
+print(coroutine.status(co2))   -- suspended
+print(coroutine.running())
+ 
+print("----------")
+
+
+function myfunction ()
+	print(debug.traceback("Stack trace"))
+	print(debug.getinfo(1))
+	print("Stack trace end")
+	return 10
+end
+myfunction ()
+print(debug.getinfo(1))
+
+kb = collectgarbage("count")
+print("lua 使用的内存：" .. kb .. "k")
+
+-- Meta class
+Shape = {area = 0}
+
+-- 基础类方法 new
+function Shape:new (o,side)
+  o = o or {}
+  setmetatable(o, self)
+  self.__index = self
+  side = side or 0
+  self.area = side*side;
+  return o
+end
+
+-- 基础类方法 printArea
+function Shape:printArea ()
+  print("面积为 ",self.area)
+end
+
+-- 创建对象
+myshape = Shape:new(nil,10)
+
+myshape:printArea()
+
+MyClass = {className="myClass"}
+function MyClass:new(o)
+  o = o or {}
+  setmetatable(o,self)
+  self.__index = self
+  return o
+end
+
+function MyClass:setClassName(name)
+  self.className = name
+end
+
+function MyClass:getClassName()
+  return self.className
+end
+
+newClass = MyClass:new(nil)
+newClass:setClassName("newClass")
+print(newClass:getClassName())
 
