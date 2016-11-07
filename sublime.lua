@@ -1,4 +1,4 @@
-#!/usr/bin/env lua 
+-- --/usr/bin/env lua 
 
 -- print("Hello world")
 -- a={"a","b","c","d"}
@@ -89,102 +89,124 @@
 -- print(a)
 
 -- coroutine_test.lua 文件
-co = coroutine.create(
-    function(i)
-        print(i);
-    end
-)
+-- co = coroutine.create(
+--     function(i)
+--         print(i);
+--     end
+-- )
  
-coroutine.resume(co, 1)   -- 1
-print(coroutine.status(co))  -- dead
+-- coroutine.resume(co, 1)   -- 1
+-- print(coroutine.status(co))  -- dead
  
-print("----------")
+-- print("----------")
  
-co = coroutine.wrap(
-    function(i)
-        print(i);
-    end
-)
+-- co = coroutine.wrap(
+--     function(i)
+--         print(i);
+--     end
+-- )
  
-co(1)
+-- co(1)
  
-print("----------")
+-- print("----------")
  
-co2 = coroutine.create(
-    function()
-        for i=1,10 do
-            print(i)
-            if i == 3 then
-                print(coroutine.status(co2))  --running
-                print(coroutine.running()) --thread:XXXXXX
-            end
-            coroutine.yield()
-        end
-    end
-)
+-- co2 = coroutine.create(
+--     function()
+--         for i=1,10 do
+--             print(i)
+--             if i == 3 then
+--                 print(coroutine.status(co2))  --running
+--                 print(coroutine.running()) --thread:XXXXXX
+--             end
+--             coroutine.yield()
+--         end
+--     end
+-- )
  
-coroutine.resume(co2) --1
-coroutine.resume(co2) --2
-coroutine.resume(co2) --3
+-- coroutine.resume(co2) --1
+-- coroutine.resume(co2) --2
+-- coroutine.resume(co2) --3
  
-print(coroutine.status(co2))   -- suspended
-print(coroutine.running())
+-- print(coroutine.status(co2))   -- suspended
+-- print(coroutine.running())
  
-print("----------")
+-- print("----------")
 
 
-function myfunction ()
-	print(debug.traceback("Stack trace"))
-	print(debug.getinfo(1))
-	print("Stack trace end")
-	return 10
-end
-myfunction ()
-print(debug.getinfo(1))
+-- function myfunction ()
+-- 	print(debug.traceback("Stack trace"))
+-- 	print(debug.getinfo(1))
+-- 	print("Stack trace end")
+-- 	return 10
+-- end
+-- myfunction ()
+-- print(debug.getinfo(1))
 
-kb = collectgarbage("count")
-print("lua 使用的内存：" .. kb .. "k")
+-- kb = collectgarbage("count")
+-- print("lua 使用的内存：" .. kb .. "k")
 
--- Meta class
-Shape = {area = 0}
+-- -- Meta class
+-- Shape = {area = 0}
 
--- 基础类方法 new
-function Shape:new (o,side)
-  o = o or {}
-  setmetatable(o, self)
-  self.__index = self
-  side = side or 0
-  self.area = side*side;
-  return o
-end
+-- -- 基础类方法 new
+-- function Shape:new (o,side)
+--   o = o or {}
+--   setmetatable(o, self)
+--   self.__index = self
+--   side = side or 0
+--   self.area = side*side;
+--   return o
+-- end
 
--- 基础类方法 printArea
-function Shape:printArea ()
-  print("面积为 ",self.area)
-end
+-- -- 基础类方法 printArea
+-- function Shape:printArea ()
+--   print("面积为 ",self.area)
+-- end
 
--- 创建对象
-myshape = Shape:new(nil,10)
+-- -- 创建对象
+-- myshape = Shape:new(nil,10)
 
-myshape:printArea()
+-- myshape:printArea()
 
-MyClass = {className="myClass"}
-function MyClass:new(o)
-  o = o or {}
-  setmetatable(o,self)
-  self.__index = self
-  return o
-end
+-- MyClass = {className="myClass"}
+-- function MyClass:new(o)
+--   o = o or {}
+--   setmetatable(o,self)
+--   self.__index = self
+--   return o
+-- end
 
-function MyClass:setClassName(name)
-  self.className = name
-end
+-- function MyClass:setClassName(name)
+--   self.className = name
+-- end
 
-function MyClass:getClassName()
-  return self.className
-end
+-- function MyClass:getClassName()
+--   return self.className
+-- end
 
-newClass = MyClass:new(nil)
-newClass:setClassName("newClass")
-print(newClass:getClassName())
+-- newClass = MyClass:new(nil)
+-- newClass:setClassName("newClass")
+-- print(newClass:getClassName())
 
+-- co = coroutine.create(function ()
+-- 	print("coroutine start")
+-- 	i = 1
+-- 	while(i < 100) do
+-- 		i = i + 1
+-- 	print(coroutine.status(co))
+-- 	end
+-- 	print("coroutine finish") 
+-- end)
+
+-- print(coroutine.status(co))
+-- coroutine.resume(co)
+-- print(coroutine.status(co))
+
+a = {}
+print(#a)
+
+a = 'a"problematic" \\string'
+print(string.format("%q",a))
+
+for n in pairs(_G) do print(n) end
+print(_VERSION)
