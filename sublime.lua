@@ -202,11 +202,25 @@
 -- coroutine.resume(co)
 -- print(coroutine.status(co))
 
-a = {}
-print(#a)
+-- a = {}
+-- print(#a)
 
-a = 'a"problematic" \\string'
-print(string.format("%q",a))
+-- a = 'a"problematic" \\string'
+-- print(string.format("%q",a))
 
-for n in pairs(_G) do print(n) end
-print(_VERSION)
+-- for n in pairs(_G) do print(n) end
+-- print(_VERSION)
+
+math.randomseed(os.time())
+for i=1,5 do
+	print(math.random(6))
+end
+
+a="abcdefg"
+print(string.sub(a,2,-2))
+print(string.byte(a,1,4))
+
+b="a a a abbbbv ccccc"
+r,n = string.gsub(b," "," ")
+print(r)
+print(n)
