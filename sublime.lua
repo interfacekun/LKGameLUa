@@ -227,10 +227,10 @@
 --mPath = package.path
 -- mPath = string.gsub(package.path, ";" ,"\n")
 -- print(package.path)
-print(string.gsub("aaaaa","a","%a"))
-print(string.gsub("cccccaaa","%.","a"))
+--print(string.gsub("aaaaa","a","%a"))
+--print(string.gsub("cccccaaa","%.","a"))
 
 s = [[then he said:"it's all right"!]]
-q, quotedPart = string.match(s,"([\"'])(.-)%l")
+q, quotedPart = string.match(s,"(\".-\")")
 print(q)
 print(quotedPart)
