@@ -230,6 +230,21 @@
 --print(string.gsub("aaaaa","a","%a"))
 --print(string.gsub("cccccaaa","%.","a"))
 
-s = [[then he said:"it's all right"!]]
-q = string.match(s,"[\"](.-)[\"]")
-print(q)
+-- s = [[then he said:"it's all right"!]]
+-- q = string.match(s,"[\"](.-)[\"]")
+-- print(q)
+--print(os.date())
+--for n in pairs(_G) do print(n) end
+--debug.sethook(print,"l")
+function sDebug()
+	mDebug()
+end
+function mDebug()
+	for d,v in pairs(debug.getinfo(2,"Sn")) do 
+		print(d,v) 
+	end
+end
+
+--mDebug()
+sDebug()
+--print(math.huge)
