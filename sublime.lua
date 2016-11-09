@@ -211,16 +211,26 @@
 -- for n in pairs(_G) do print(n) end
 -- print(_VERSION)
 
-math.randomseed(os.time())
-for i=1,5 do
-	print(math.random(6))
-end
+-- math.randomseed(os.time())
+-- for i=1,5 do
+-- 	print(math.random(6))
+-- end
 
-a="abcdefg"
-print(string.sub(a,2,-2))
-print(string.byte(a,1,4))
+-- a="abcdefg"
+-- print(string.sub(a,2,-2))
+-- print(string.byte(a,1,4))
 
-b="a a a abbbbv ccccc"
-r,n = string.gsub(b," "," ")
-print(r)
-print(n)
+-- b="a a a abbbb"
+-- r,n = string.gsub(b," "," ")
+-- print(r)
+-- print(n)
+--mPath = package.path
+-- mPath = string.gsub(package.path, ";" ,"\n")
+-- print(package.path)
+print(string.gsub("aaaaa","a","%a"))
+print(string.gsub("cccccaaa","%.","a"))
+
+s = [[then he said:"it's all right"!]]
+q, quotedPart = string.match(s,"([\"'])(.-)%l")
+print(q)
+print(quotedPart)
