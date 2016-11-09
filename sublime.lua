@@ -231,6 +231,5 @@
 --print(string.gsub("cccccaaa","%.","a"))
 
 s = [[then he said:"it's all right"!]]
-q, quotedPart = string.match(s,"(\".-\")")
+q = string.match(s,"[\"](.-)[\"]")
 print(q)
-print(quotedPart)
