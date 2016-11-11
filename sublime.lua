@@ -236,16 +236,96 @@
 --print(os.date())
 --for n in pairs(_G) do print(n) end
 --debug.sethook(print,"l")
-function sDebug()
-	mDebug()
-end
-function mDebug()
-	for d,v in pairs(debug.getinfo(2,"Sn")) do 
-		print(d,v) 
-	end
-end
+-- function sDebug()
+-- 	mDebug()
+-- end
+-- function mDebug()
+-- 	for d,v in pairs(debug.getinfo(2,"Sn")) do 
+-- 		print(d,v) 
+-- 	end
+-- end
 
---mDebug()
-sDebug()
---print(math.huge)
-print(math.huge)
+-- mDebug()
+-- sDebug()
+-- --print(math.huge)
+-- print(math.huge)
+-- a = {}
+-- b = {}
+-- setmetatable(a,b)
+-- print(getmetatable(a));
+
+-- print(select("3","a","b","c"))
+-- a = {1,2,3,["4"]=123}
+-- b = {__tostring = function (a) 
+-- 	for k,v in pairs(a) do
+-- 		local vv = tostring(v)
+-- 		print(vv,type(vv)) 
+-- 	end
+-- end,
+-- }
+-- setmetatable(a,b)
+-- tostring(a)
+
+-- a = getmetatable("string")
+-- type(a)
+-- for k,v in pairs(a) do
+-- 	print(k,v)
+-- end
+
+-- newindex={}
+-- newindexmt={}
+-- newindexmt.__index=function ()
+-- 	return "null"
+-- end
+-- setmetatable(newindex,newindexmt)
+-- print(newindex[1],newindex[2])
+
+-- Shape = {area = 0}
+-- function Shape:new(o)
+-- 	o = o or {}
+-- 	setmetatable(o, self)
+-- 	self.__index = self
+-- 	for k,v in pairs(self) do 
+-- 		print(k, v)
+-- 	end
+-- 	return o
+-- end
+
+-- function Shape:setArea(area)
+-- 	self.area = area
+-- end
+
+-- function Shape:getArea()
+-- 	print(self)
+-- 	return self.area
+-- end
+-- mShape = Shape:new()
+-- print(mShape)
+-- --print(type(mShape))
+-- mShape:setArea(100)
+-- marea = mShape:getArea()
+-- print(marea)
+-- mShape2 = Shape:new()
+-- print(mShape2)
+
+
+-- mShape2:setArea(200)
+-- marea = mShape2:getArea()
+-- print(marea)
+
+-- print(string.match("aaaHello", "()Hello"))
+
+function expandTabs (s,tab )
+  tab = tab or 8
+  local corr = 0
+  s= string.gsub(s,"()\t",function(p)
+  	print(p)
+    local sp = tab - (p -1 + corr)%tab
+    corr = corr -1 + sp
+    print(corr)
+    return string.rep("-",sp)
+  end)
+  return s
+end
+print("a\tsa,\tan.\t")
+print(expandTabs("a\tsa,\tan.\t"))

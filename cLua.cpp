@@ -9,7 +9,8 @@ extern "C" {
 static void stackDump(lua_State *L){
 	int i;
 	int top = lua_gettop(L);
-	printf("%d\n", top);
+	printf("栈中元素：%d\n", top);
+	printf("栈底    ---------->    栈顶\n");
 	for(i = 1; i <= top; i++){
 		int t = lua_type(L, i);
 		switch(t){
@@ -33,8 +34,9 @@ static void stackDump(lua_State *L){
 		printf("  ");
 	}
 
-	printf("\n");
+	printf("\n\n");
 }
+
 
 int main(void){
 	lua_State *L = luaL_newstate();
@@ -59,6 +61,16 @@ int main(void){
 
 	lua_settop(L, -5);
 	stackDump(L);
+	
+
+	lua_pushnumber(L, 10);
+	stackDump(L);
+	int nu = lua_tonumber(L, -1);
+	printf("a=%d\n", nu);
+	stackDump(L);
+
+	printf("%d\n", LUA_REGISTRYINDEX);
+
 	lua_close(L);
 
 	return 0;
