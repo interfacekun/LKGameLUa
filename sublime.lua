@@ -315,17 +315,71 @@
 
 -- print(string.match("aaaHello", "()Hello"))
 
-function expandTabs (s,tab )
-  tab = tab or 8
-  local corr = 0
-  s= string.gsub(s,"()\t",function(p)
-  	print(p)
-    local sp = tab - (p -1 + corr)%tab
-    corr = corr -1 + sp
-    print(corr)
-    return string.rep("-",sp)
-  end)
-  return s
-end
-print("a\tsa,\tan.\t")
-print(expandTabs("a\tsa,\tan.\t"))
+-- function expandTabs (s,tab )
+--   tab = tab or 8
+--   local corr = 0
+--   s= string.gsub(s,"()\t",function(p)
+--   	print(p)
+--     local sp = tab - (p -1 + corr)%tab
+--     corr = corr -1 + sp
+--     print(corr)
+--     return string.rep("-",sp)
+--   end)
+--   return s
+-- end
+-- print("a\tsa,\tan.\t")
+-- print(expandTabs("a\tsa,\tan.\t"))
+
+-- local f = assert(io.open("/etc/passwd", "r"))
+-- local t  = f:read("*all")
+-- f:close()
+-- print(t)
+-- local f = assert(io.open("/etc/passwd", "r"))
+-- t = f:read("*line")
+-- print(t)
+-- t = f:read("*line")
+-- while t~=nil do
+--  	print(t)
+--  	t = f:read("*line")
+-- end
+-- for line in io.lines("/etc/passwd") do
+-- 	print(line)
+-- end
+
+--print(arg[0], arg[1], arg[2], arg[-1], arg[-2])
+-- function foo(...)
+-- 	for i = 1, select('#', ...) do
+-- 		local arg = select(i, ...)
+-- 		print(i, arg)
+-- 	end
+-- end
+
+-- foo("a", "b", "c")
+-- function derivative(f, delta)
+-- 	delta = delta or 1e-4
+-- 	return function (x)
+-- 		print(x)
+-- 		return (f(x+delta)-f(x))/delta
+-- 	end
+-- end
+
+-- c = derivative(math.sin)
+-- print(math.cos(10), c(10), c(11))
+
+--错误语法
+-- while (t=math.sin(10)) >0 do
+-- 	print(t)
+-- end
+
+t = {["x"]="a",["y"]="b"}
+tm = {
+	__index = function ( _,k )
+		for i in pairs(_) do
+			print(type(i),i)
+		end
+		print(k)
+	end
+}
+setmetatable(t, tm)
+
+print(t.z)
