@@ -384,6 +384,7 @@
 
 -- print(t.z)
 
+<<<<<<< HEAD
 function f()
 	print("aaaaa")
 	return "123"
@@ -391,3 +392,10 @@ end
 
 p = assert(f);
 --print(p());
+=======
+function func(a)
+	print(a)
+end
+
+func "你好"
+>>>>>>> origin/master
