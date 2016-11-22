@@ -371,15 +371,21 @@
 -- 	print(t)
 -- end
 
-t = {["x"]="a",["y"]="b"}
-tm = {
-	__index = function ( _,k )
-		for i in pairs(_) do
-			print(type(i),i)
-		end
-		print(k)
-	end
-}
-setmetatable(t, tm)
+-- t = {["x"]="a",["y"]="b"}
+-- tm = {
+-- 	__index = function ( _,k )
+-- 		for i in pairs(_) do
+-- 			print(type(i),i)
+-- 		end
+-- 		print(k)
+-- 	end
+-- }
+-- setmetatable(t, tm)
 
-print(t.z)
+-- print(t.z)
+
+function func(a)
+	print(a)
+end
+
+func "你好"
